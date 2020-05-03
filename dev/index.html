@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论.Example</title>
+    <link rel="stylesheet" href="../dist/comment-js.css">
+    <script src="../dist/comment-js.js"></script>
+    <style>
+        .example {
+            margin: 0 auto;
+            width: 60%;
+        }
+
+        @media (max-width: 763px) {
+            .example {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="example">
+        <div id="comment-js"></div>
+    </div>
+    <script>
+        window.addEventListener("load", function (event) {
+            const commentJS = new CommentJS({
+                commentUrl: 'http://localhost:8080/comment',
+                commentsUrl: 'http://localhost:8080/comments',
+                commentsParams: function (params = {}) {
+                    return { ...params, id: '8X6JV6JEoY8XpCG1lebEv4ZfX' }
+                },
+                commentParams: function (params = {}) {
+                    return { ...params, postId: '8X6JV6JEoY8XpCG1lebEv4ZfX' }
+                }
+            })
+            commentJS.render('comment-js')
+        })
+    </script>
+</body>
+
+</html>

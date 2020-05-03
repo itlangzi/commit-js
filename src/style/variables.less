@@ -1,0 +1,72 @@
+@main-color          : #6190e8;
+@sub-color           : #a1a1a1;
+@loader-color        : #999999;
+@error-color         : #ff3860;
+@hr-color            : #E9E9E9;
+@input-border-color  : rgba(0, 0, 0, 0.1);
+@input-bg-color      : #f6f6f6;
+@comt-bg-color       : #f9f9f9;
+@comt-admin-bg-color :#f6f9fe;
+@comt-txt-color      : #333333;
+@link-active-color   : #333333;
+@btn-color           : #ffffff;
+@popbg-color         : #ffffff;
+@breakpoint-mobile   : 479px;
+@base-size           : 16px;
+@border-radius-size  : 4px;
+@loader-dot-size     : unit(6px / @base-size, rem);
+@loader-size         : unit(28px / @base-size, rem);
+@avatar-size         : unit(50px / @base-size, rem);
+@avatar-mobi-size    : unit(32px / @base-size, rem);
+
+.rem(@prop, @px) {
+    @{prop}: unit(@px / @base-size, rem)
+}
+.rem(@prop; @px; @rest...) when(length(@rest)=1) {
+    @{prop}: unit(@px / @base-size, rem) unit(extract(@rest, 1) / @base-size, rem);
+}
+
+.rem(@prop; @px; @rest...) when(length(@rest)=2) {
+    @{prop}: unit(@px / @base-size, rem) unit(extract(@rest, 1) / @base-size, rem) unit(extract(@rest, 2) / @base-size, rem);
+}
+
+.rem(@prop; @px; @rest...) when(length(@rest)=3) {
+    @{prop}: unit(@px / @base-size, rem) unit(extract(@rest, 1) / @base-size, rem) unit(extract(@rest, 2) / @base-size, rem) unit(extract(@rest, 3) / @base-size, rem);
+}
+
+.font-size(@px) {
+    .rem(font-size, @px);
+}
+
+.width(@px) {
+    .rem(width, @px);
+}
+
+.height(@px) {
+    .rem(height, @px);
+}
+
+.line-height(@px) {
+    .rem(line-height, @px);
+}
+
+.background-size(@wpx, @hpx) {
+    -webkit-background-size: unit(@wpx / @base-size, rem) unit(@hpx / @base-size, rem);
+    background-size        : unit(@wpx / @base-size, rem) unit(@hpx / @base-size, rem);
+}
+
+.mr(@px) {
+    .rem(margin-right, @px)
+}
+
+.ml(@px) {
+    .rem(margin-left, @px)
+}
+
+.mt(@px) {
+    .rem(margin-top, @px)
+}
+
+.mb(@px) {
+    .rem(margin-bottom, @px)
+}
